@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+declare -a array=( 
+    foo 
+    bar 
+    baz
+)
+
+echo "*: ${array[*]}"
+echo "@: ${array[@]}" #we all know @ sign basically hover through all args
+echo
+
+echo "loop over * (to make the array stringify)"
+for star in "${array[*]}"; do
+    echo "*: $star"
+done
+
+echo
+
+echo "loop over @ (to treat it like an array)"
+for at in "${array[@]}"; do
+    echo "@: $at" 
+done
+

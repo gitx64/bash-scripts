@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# echo backticks notation
+# whoami
+# echo `whoami`
+# echo `echo $(whoami)`
+
+# echo
+
+echo dollar-parens notation
+echo $(whoami)
+echo $(echo $(whoami))
+echo $(echo $(echo $(whoami)))
+
+
+my-func() {
+    echo hi
+}
+
+thing=$(my-func)
+echo "thing is $thing"
+

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "Importance of quoting the values in bash"
+
+first_array=("hey there using bash" foo bar baz)
+copied_array=( "${first_array[@]}" )
+
+for item in "${first_array[@]}"; do
+    echo "Item is : $item"
+done
+
+for item in "${copied_array[@]}"; do
+    echo "Item is: $item"
+done

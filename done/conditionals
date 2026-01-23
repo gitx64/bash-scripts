@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+a=2
+b=2
+
+if [[ $a == $b ]]; then
+    echo 'a and b are the same'
+else
+    echo 'a and b are NOT the same'
+fi 
+
+if [[ -f file.txt ]]; then
+    echo 'file.txt exists and its a file'
+fi
+
+while [[ -f file.txt ]]; do
+    echo 'file.txt exists and its a file'
+    sleep 1
+done
+
+echo 'File is gone'

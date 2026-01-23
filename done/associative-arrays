@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+declare -A arr
+
+echo $?
+
+if ! declare -A arr; then
+    echo "uh oh i can't make an associative array" >&2
+    exit 1
+fi
+
+arr[foo]=1
+arr[bar]=2
+arr[baz]=3
+
+for key in "${!arr[@]}"; do
+    value=${arr[$key]}
+    echo "Got $key=$value"
+done

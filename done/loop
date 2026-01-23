@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+#for thing in "$1" "$2" "$3"; do
+#	echo "thing is $thing"
+#done
+
+if [[ -n $1 ]]; then
+	for thing in "$@"; do
+		echo "all is $thing"
+	done
+else
+	echo "all is nothing"
+fi

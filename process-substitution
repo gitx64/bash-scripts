@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# words=$(grep d ~/Downloads/rockyou.txt) this is inefficient for the memory to store this huge amount of lines so we can just stream it into the loop for better memory flow
+
+i=0
+grep d ~/Downloads/rockyou.txt | while read -r word; do
+    echo "$word"
+    ((i++))
+done # <<< "$words"
+
+echo $i found # but as we know while pipelining right side of pipe always runs in a subshell so if i increments it will not show up globally. thats when comes process substitution.
+
+while read -r word; do
+    echo "$word"
+    ((i++))
+done < <(grep d /home/rk/Downloads/rockyou.txt) # < sign for input
+
+echo $i found

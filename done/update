@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if sudo pacman -Sy; then
+    echo 'Update successfull'
+else
+    echo 'Update unsuccessfull'
+fi

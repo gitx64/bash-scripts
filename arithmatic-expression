@@ -1,0 +1,28 @@
+##!/usr/bin/env bash
+
+#thing=$(( 2 + 2 ))
+#echo "thing is $thing"
+
+#a=2
+#b=3
+#thing=$(( a + b ))
+#echo "thing is : $thing"
+
+#i=2 
+#((i >>= 2))
+#(( max = a > 2 ? a : b ))
+
+#echo "i = $i" 
+#echo "max = $max" 
+
+(( 2 + 2 )); echo $?
+
+a=10
+
+if (( a % 2 )); then
+    echo number is odd
+else
+    echo number is even
+fi
+
+

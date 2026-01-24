@@ -1,4 +1,4 @@
-Fundamental introduction (seemed important to know)
+# Fundamental introduction (seemed important to know)
 
 
 - grep '^ly' <file name>  -->  starts with 'ly'
@@ -27,20 +27,19 @@ Fundamental introduction (seemed important to know)
 -----------------------------------------------------------------
 # File Command
 
-file <filename> -> shows the type of content it contains.
+- file <filename> -> shows the type of content it contains.
 
-$PATH -> builtin variables.
+- $PATH -> builtin variables.
 
-tr : '\n' -> translate all ':' to '\n' here means colon seperated lines to new line like C
+- tr : '\n' -> translate all ':' to '\n' here means colon seperated lines to new line like C
 
-*Use ' ' whenever you can for echoing anything or in other commands for variables or inputs I guess. Because without that thing it will just ignore any unneccessary things which it thinks. 
+* Use ' ' whenever you can for echoing anything or in other commands for variables or inputs I guess. Because without that thing it will just ignore any unneccessary things which it thinks. 
 
-unset foo -> to unset a temporary variable
+- unset foo -> to unset a temporary variable
 
-thing=$(...) -> syntax to store a command output.
+- thing=$(...) -> syntax to store a command output.
 
 -----------------------------------------------------------------
-
 # SCripting:
 
 .sh is posix compliant, which is not featurefull as bash. so no extention is needed cause proper shebang is there for the shell #!/usr/bin/env bash
@@ -51,15 +50,13 @@ done --> for loop which treats all after in as list.
 
 bash -n -> for syntax checking of a bash script.
 
----------------------------------------------------------------------
-
 # USER INPUT
 
 read -p 'Enter your name: ' name
 yes -> dangerus yes command in loop.
 
-----------------------------------------------------------------------
-IF ELSE
+------------------------------------------------------------------
+# IF ELSE
 
 -n : True if string is set. if [[ -n $1 ]] -> if string is set to first argument.
 
@@ -92,7 +89,7 @@ TIP* scripts are just the bunch of bash scripts. which can be done in bare termi
 
 -----------------------------------------------------------------
 
-FOR_LOOPS
+# FOR_LOOPS
 
 for thing in {a..f}; do
     echo "Thing is $thing"
@@ -102,14 +99,14 @@ done
 
 -----------------------------------------------------------------
 
-INPUT/OUTPUT
+# INPUT/OUTPUT
 
 read -r -> for raw input which prevents read command to tinker with backslashes.
 
 read by default reads only one line. To make it read all lines then put it inside while loop.
 
 ------------------------------------------------------------------
-CASE STATEMENT
+# CASE STATEMENT
 
 case "$s" in
     d*) echo "Matched d*";;
@@ -127,7 +124,7 @@ esac
 ------------------------------------------------------------------
 TIP* Dont forget to double quote variable values in bash.
 
-INDEXED ARRAYS
+# INDEXED ARRAYS
 
 array=(foo bar baz) -> syntax of array in bash
 
@@ -206,4 +203,13 @@ TIP* remember for iterating over keys in associative arrays: "${!array[@]}"
 
 TIP* In for loop, "$variable" will treat the $variable to only 1. Which can be helpful forints, but not with strings.
 
-      
+- shift -> command to shift an entire array by one index so first index will be lost
+
+${#args[@]} -> shows the index nums of values.
+${!args[@]} -> think it shows the keys of args.
+
+- more specifically if speaking, ${args[@]} is useful for input and ${args[*]} for output.
+
+TIP* For functions never add $ for @. And for arguments never 
+
+- in for loops if we dont give 'in' parameter it will iterate over all arguments ($@).

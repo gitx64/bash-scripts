@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+process-indexed() {
+    local arguments=("$@")
+    echo "found: ${#arguments[@]} arguments"
+    
+    local IFS=,
+    echo "${arguments[*]}"
+}
+
+process-associative() {
+    local arguments=("$@")
+    echo "Found : ${#arguments[@]} arguments"
+
+    declare -A unique
+    local item
+    for item in "${arguments[@]}"; do
+        unique[$item]=1
+    done
+
+    echo "found: ${#unique[@]} unique arguments" # no $@ for array args.
+} 
+
+process-commands() {
+    local arguments=("$@")
+    echo "found: ${#arguments[@]} arguments"
+    
+    local item
+    for item; do
+        echo "Command running: $item"
+        "$item" #dont ever do this it will just execute any commands given.
+    done
+}
+
+
+
+cmd=$1
+shift
+case "$cmd" in
+    indexed) 
+        process-indexed "$@"
+        ;;
+
+    associative)
+        process-associative "$@"
+        ;;
+
+    commands)
+        process-commands "$@"
+        ;;
+    *)
+        echo "Unknown command: $cmd" >&2
+        exit 1
+        ;;
+esac

@@ -199,6 +199,7 @@ TIP* remember for iterating over keys in associative arrays: "${!array[@]}"
 - if a=05 or 06 then its good to go because whenever bash sees zero infront of any values it assumes it as a octal value. but if we a=08 then it will show the error. to prevent it we have to do either in octal form of 08 (010) or echo $((10#$a)).
 
 ------------------------------------------------------------------
+
 # PROCESS SUBSTITUTION
 
 TIP* In for loop, "$variable" will treat the $variable to only 1. Which can be helpful forints, but not with strings.
@@ -213,3 +214,16 @@ ${!args[@]} -> think it shows the keys of args.
 TIP* For functions never add $ for @. And for arguments never 
 
 - in for loops if we dont give 'in' parameter it will iterate over all arguments ($@).
+-----------------------------------------------------------------
+
+# CUT & TR COMMANDS
+
+- cat simple.csv | tr , :  --> this will translate any ',' seperated values to ':' seperated values when stdout.
+
+- cat simple.csv | cut -d , -f 1 --> the cut command gets a delimeter and a field number, where it will just pick the sections we need which is comma seperated.
+
+- cat simple.csv | cut -d , -f 1 --> will show the first parameter
+- for complex .csv files like "NEW York, NY" for this we have to do like some range specifications. cut -d , -f 3-  (if this is the last and third parameter of the file.)
+
+-----------------------------------------------------------------
+ 

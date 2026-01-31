@@ -227,3 +227,35 @@ TIP* For functions never add $ for @. And for arguments never
 
 -----------------------------------------------------------------
  
+# Sed,Awk,grep
+
+- sed is a stream editor.
+- cat /etc/passwd | cut -d : -f 1,7 | grep rk | sed 's/rk/astik/' |
+\_ replaces every rk from the stream to astik.
+
+- sed 's/expression/new-expression/'
+- sed 's#/expression/new-expression#/expression2/new-expression2/'
+|
+\_ for multiple change
+
+## Awk is really very powerful that we can do literally all of the things for which we use other commands.
+
+cat /etc/passwd | awk '{print $1,$2}' --> prints the whole thing cause some delimeters are needed.
+
+cat /etc/passwd | awk -F: '{print $1,$2}' --> prints the 1st and 2nd.
+
+< /etc/passwd awk -F: '$1 == "rk" { print $1, $7 }'  
+
+- < /etc/passwd awk -F: '{ print $7 }' | sort | uniq -c --> prints the 7th parameter then sorts it then fetches the unique values with the flag -c to count how many of them are present.
+
+- wc -c (character count), wc -l (line count), wc -w (word count)
+
+------------------------------------------------------------------
+
+# FIND Command
+
+find /usr/share -type f --> prints all the present things in there of type file
+
+find /usr/share -type f -name '*.txt' --> prints the available text files.
+
+find /usr/share -type f -name '*.txt' -exec echo hi i have found a file {} yay \;  --> simply echoes hi i have found a file then in the place of {} the file name then yay and escaped the character ; which is needed by find but bash can behave differently so escape or quote that.
